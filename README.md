@@ -1,6 +1,21 @@
 # RFID-lock-unlock-a-computer
 A university project that can lock and unlock any computer using a RFID Scanner and a tag.
 
+## Index
+
+1. [How it came to be](#how-it-came-to-be)
+
+2. [Setting it up](#setting-it-up)
+    - [Installation](#installation)
+    - [Components](#components)
+    - [Connections](#connections)
+    - [Utilising the software](#utilising-the-software)
+    - [Editing the code](editing-the-code)
+
+3. [Contributors](#contributors)
+
+4. [License](#license)
+
 ## How it came to be
 Dedicated to preventing password guessing, password theft, while providing an easier, and safer access to a computer.
 This project came to be during the first semester at the university, and was also the first major project undertaken by me.
@@ -21,6 +36,8 @@ git clone https://github.com/Naruita/RFID-lock-unlock-a-computer.git
 
 The project essentially utilises the Arduino board combined with the RFID Scanner to act as the receiver for the signals transmitted by the RFID tags.
 
+---
+
 ### Components
 
 #### The hardware components you will require in order to set up and run this project are,
@@ -35,6 +52,8 @@ The project essentially utilises the Arduino board combined with the RFID Scanne
 
 - [Arduino IDE](https://www.arduino.cc/en/Main/Software), for the compiling and uploading of the code to the Arduino.
 - [Atmel's FLIP 3.4.7](http://ww1.microchip.com/downloads/en/DeviceDoc/JRE%20-%20Flip%20Installer%20-%203.4.7.112.exe), this is used to implement the keystrokes into the Arduino which acts as a keyboard.
+
+---
 
 ### Connections
 
@@ -55,6 +74,8 @@ The connections to be made for the working of this project are as follows,
   connections
 </p>
 
+---
+
 ### Utilising the software
 
 Add the MFRC522 library to your Arduino libraries, this ensures that you have all the required functions to manipulate the RFID Scanner into working the way it should.
@@ -64,7 +85,10 @@ After downloading/cloning either one of them into your computer, you'd want to e
 ```
 C:\Program Files (x86)\Arduino\libraries
 ```
-### Modifying the code
+
+---
+
+### Editing the code
 Since the Arduino simply verifies whether or not a RFID tag can access the code, you need to change the code in order to let your tag access it.
 
 This can be done using the tag's Unique Identifier code, also, known as *UID*.
@@ -77,6 +101,10 @@ Running this code after uploading, we get the UID codes in the output screen, wh
 Store these somewhere in your system.
 
 We will be needing these later.
+
+#### Modifying the code to contain UID tags
+
+---
 
 ## Contributors
 Being a project made in university, this project was contributed to by [@1StranGe](https://github.com/1StranGe) as a team member.
