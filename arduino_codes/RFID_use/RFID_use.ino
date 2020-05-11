@@ -53,8 +53,8 @@ delay(200);
 
 buf[0] = 0;
 buf[2] = 0x04; // letter A
-Serial.write(buf, 8);
-releaseKey();
+Serial.write(buf, 8); // Presses the key
+releaseKey(); // Releases the key
 
 delay(50);
 
