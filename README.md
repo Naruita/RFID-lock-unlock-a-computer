@@ -107,9 +107,9 @@ We will be needing these later.
 
 #### Modifying the code to contain UID tags
 Now, we need to modify the existing UID codes in the [RFID_use](arduino_codes/RFID_use/RFID_use.ino).
-In [line 42](https://github.com/Naruita/RFID-lock-unlock-a-computer/blob/6ed9a8c351e9bd2d3f71e4363cc7bec0eaecb471/arduino_codes/RFID_use/RFID_use.ino#L42), we need to replace the UID codes as shown below,
+In [line 42](https://github.com/dat-adi/RFID-lock-unlock-a-computer/blob/6ed9a8c351e9bd2d3f71e4363cc7bec0eaecb471/arduino_codes/RFID_use/RFID_use.ino#L42), we need to replace the UID codes as shown below,
 <p align="center">
-    <img src="https://github.com/Naruita/RFID-lock-unlock-a-computer/blob/master/assets/modify_code.PNG" alt="modify code" border="10">
+    <img src="https://github.com/dat-adi/RFID-lock-unlock-a-computer/blob/master/assets/modify_code.PNG" alt="modify code" border="10">
     <br>
     UID modification
 </p>
@@ -128,7 +128,7 @@ releaseKey();           // Releases the key
 delay(50);
 ```
 
-Applied on the file RFID_use, [line 54](https://github.com/Naruita/RFID-lock-unlock-a-computer/blob/62748ac72d3d211d0a937e620e75145e14e52f4b/arduino_codes/RFID_use/RFID_use.ino#L54), just change the *0x04* which symbolizes 'A' to the letter you want through the hex file dictionary.
+Applied on the file RFID_use, [line 54](https://github.com/dat-adi/RFID-lock-unlock-a-computer/blob/62748ac72d3d211d0a937e620e75145e14e52f4b/arduino_codes/RFID_use/RFID_use.ino#L54), just change the *0x04* which symbolizes 'A' to the letter you want through the hex file dictionary.
 
 Continuing the same procedure for the rest of the letters, you should find yourself at completion with regards to making the hex password, in the Arduino code.
 
