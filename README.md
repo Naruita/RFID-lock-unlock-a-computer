@@ -34,7 +34,7 @@ I hoped that people would up their security with harder to crack passwords which
 The entire process requires the installation of multiple files like the [Arduino IDE](https://www.arduino.cc/en/Main/Software), and the [ATMEL Flip](http://ww1.microchip.com/downloads/en/DeviceDoc/JRE%20-%20Flip%20Installer%20-%203.4.7.112.exe).
 The hex files, code, 
 ```
-git clone https://github.com/Naruita/RFID-lock-unlock-a-computer.git
+git clone https://github.com/dat-adi/RFID-lock-unlock-a-computer.git
 ```
 
 The project essentially utilises the Arduino board combined with the RFID Scanner to act as the receiver for the signals transmitted by the RFID tags.
@@ -73,7 +73,7 @@ The connections to be made for the working of this project are as follows,
 | 3.3V  | 3.3V            | Red    |
 
 <p align="center">
-    <img src="https://github.com/Naruita/RFID-lock-unlock-a-computer/blob/master/assets/RFIDImage.png" alt="Connections" border="10"><br>
+    <img src="https://github.com/dat-adi/RFID-lock-unlock-a-computer/blob/master/assets/RFIDImage.png" alt="Connections" border="10"><br>
   connections
 </p>
 
