@@ -98,11 +98,7 @@ This can be done using the tag's Unique Identifier code, also, known as *UID*.
 
 #### UID identification
 In order to change up the code, you first need to know what your tag's UID is.
-<<<<<<< HEAD
-For this, we use the program, *UID_identification*, you will find this [here](https://github.com/dat-adi/RFID-lock-unlock-a-computer/blob/master/arduino_codes/UID_identification/UID_identification.ino).
-=======
 For this, we use the program, *UID_identification*, you will find this [here](arduino_codes/UID_identification/UID_identification.ino).
->>>>>>> 47af3161a3090b9c788c7560d8f1212f9297cfd3
 
 Running this code after uploading, we get the UID codes in the output screen, when the UID tags are brought close into proximity.
 Store these somewhere in your system.
