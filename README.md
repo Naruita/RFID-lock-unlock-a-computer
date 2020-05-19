@@ -10,11 +10,14 @@ A university project that can lock and unlock any computer using a RFID Scanner 
     - [Components](#components)
     - [Connections](#connections)
     - [Utilising the software](#utilising-the-software)
-    - [Editing the code](editing-the-code)
+    - [Editing the code](#editing-the-code)
+    - [Messing with the Firmware of ATmega16U2 for the UNO](#messing-with-the-firmware-of-atmega16u2-for-the-uno)
 
-3. [Contributors](#contributors)
+3. [Testing](#testing)
 
-4. [License](#license)
+4. [Contributors](#contributors)
+
+5. [License](#license)
 
 ## How it came to be
 Dedicated to preventing password guessing, password theft, while providing an easier, and safer access to a computer.
@@ -95,7 +98,11 @@ This can be done using the tag's Unique Identifier code, also, known as *UID*.
 
 #### UID identification
 In order to change up the code, you first need to know what your tag's UID is.
+<<<<<<< HEAD
 For this, we use the program, *UID_identification*, you will find this [here](https://github.com/dat-adi/RFID-lock-unlock-a-computer/blob/master/arduino_codes/UID_identification/UID_identification.ino).
+=======
+For this, we use the program, *UID_identification*, you will find this [here](arduino_codes/UID_identification/UID_identification.ino).
+>>>>>>> 47af3161a3090b9c788c7560d8f1212f9297cfd3
 
 Running this code after uploading, we get the UID codes in the output screen, when the UID tags are brought close into proximity.
 Store these somewhere in your system.
@@ -103,6 +110,62 @@ Store these somewhere in your system.
 We will be needing these later.
 
 #### Modifying the code to contain UID tags
+Now, we need to modify the existing UID codes in the [RFID_use](arduino_codes/RFID_use/RFID_use.ino).
+In [line 42](https://github.com/Naruita/RFID-lock-unlock-a-computer/blob/6ed9a8c351e9bd2d3f71e4363cc7bec0eaecb471/arduino_codes/RFID_use/RFID_use.ino#L42), we need to replace the UID codes as shown below,
+<p align="center">
+    <img src="https://github.com/Naruita/RFID-lock-unlock-a-computer/blob/master/assets/modify_code.PNG" alt="modify code" border="10">
+    <br>
+    UID modification
+</p>
+
+This will ensure that your RFID tag has access to the rest of the code, which registers keystrokes and prints them out as the password. Or, locks the computer by pressing a combination of Win key + L.
+
+Now, you need to convert the password you want into the hex format of the password.
+This can easily be done through the [hex file dictionary](/docs/USBKeyScan.pdf)
+
+```C++
+buf[0] = 0;
+buf[2] = 0x04;          // letter A
+Serial.write(buf, 8);   // Presses the key
+releaseKey();           // Releases the key
+
+delay(50);
+```
+
+Applied on the file RFID_use, [line 54](https://github.com/Naruita/RFID-lock-unlock-a-computer/blob/62748ac72d3d211d0a937e620e75145e14e52f4b/arduino_codes/RFID_use/RFID_use.ino#L54), just change the *0x04* which symbolizes 'A' to the letter you want through the hex file dictionary.
+
+Continuing the same procedure for the rest of the letters, you should find yourself at completion with regards to making the hex password, in the Arduino code.
+
+### Messing with the Firmware of ATmega16U2 for the UNO
+This entire section is dedicated to changing the Arduino UNO into a keyboard, instructing it on which letters to insert into the system.
+
+You will need to use the hex files present in this repository of mine, or find the hex files from the [source](https://github.com/coopermaa/USBKeyboard)
+
+<p align="center">
+    <img src="/assets/pin_connect.jpg"><br>
+    Connecting pins
+</p>
+
+#### Steps to be followed in sequence from this point
+1. Connecting the two pins as shown in the figure above.
+2. Open ATMEL Flip, File -> Load Hex File. Use the [Arduino-Keyboard-0.3.hex](firmware/Arduino-Keyboard-0.3.hex) from [firmware files](firmware).
+3. Run it.
+4. Remove the USB and plug it in again.
+5. Now, it acts as a keyboard, and you can proceed onto the testing phase.
+
+#### Converting the board back into an Arduino Uno
+The Arduino does no longer work as an Arduino in case you might have noticed.
+This is because we have converted it into a keyboard.
+
+We can convert it back into an Arduino Uno, simply by loading the [Arduino-usbserial-uno.hex](firmware/Arduino-usbserial-uno.hex) from [firmware files](firmware), and following the same procedure, as the ones above.
+
+## Testing
+> The board has to be in the keyboard state for this to work, or else, it won't pass any keystrokes to the computer.
+
+Now, proceeding onwards, we can upload the code to the Arduino and test it.<br>
+Once the connected computer is in either a lock or unlocked state, bring the RFID tag to a proximity of 5 cm, in order to test it's usage.
+
+It should lock/unlock the computer depending on which state it was in previously.
 
 ---
 
